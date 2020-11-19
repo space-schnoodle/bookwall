@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Main from './Components/Main';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+/*
+React way
+const tasks = ['Concentrate', 'Learn React', 'Work harder!'];
+const element = React.createElement(
+  'ol',
+  null,
+  tasks.map((task, index) => React.createElement('li', { key: index }, task))
 );
+*/
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// with JSX
+/*
+const tasks = ['Concentrate', 'Learn React', 'Work harder!'];
+const element = (
+  <div>
+    <h1>To do!</h1>
+    <ol>
+      {tasks.map((task, index) => (
+        <li key={index}> {task}</li>
+      ))}
+    </ol>
+  </div>
+);
+*/
+
+// with components (compositional model)
+
+ReactDOM.render(<Main />, document.getElementById('root'));
