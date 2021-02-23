@@ -13,12 +13,8 @@ function BookWall(props) {
           .sort(function (x, y) {
             return y.id - x.id;
           })
-          .map((post) => (
-            <Photo
-              key={post.id}
-              post={post}
-              onRemovePhoto={props.onRemovePhoto}
-            />
+          .map((post, index) => (
+            <Photo key={post.id} post={post} {...props} index={index} />
           ))}
       </div>
     </div>
@@ -27,20 +23,6 @@ function BookWall(props) {
 
 BookWall.propTypes = {
   posts: PropTypes.array.isRequired,
-  onRemovePhoto: PropTypes.func.isRequired,
 };
-/*
-class BookWall extends Component {
-  render() {
-    return (
-      <div className="photo-grid">
-        {this.props.posts.map((post, index) => (
-          <Photo key={index} post={post} />
-        ))}
-      </div>
-    );
-  }
-}
-*/
 
 export default BookWall;
