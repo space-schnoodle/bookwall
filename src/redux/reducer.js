@@ -12,7 +12,8 @@ function comments(state = {}, action) {
           [action.postId]: [...state[action.postId], action.comment],
         };
       }
-
+    case 'LOAD_COMMENTS':
+      return action.comments;
     default:
       return state;
   }
@@ -27,6 +28,8 @@ function posts(state = postsData, action) {
       ];
     case 'ADD_POST':
       return [...state, action.post];
+    case 'LOAD_POSTS':
+      return action.posts;
     default:
       return state;
   }

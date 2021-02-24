@@ -31,6 +31,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 
+## Firebase Setup
+
+- Go to firebase.google.com, you need a google account. 
+- Go to console.
+- Create a new project named Photowall
+- Modify rules so write and read options are true so we don't need to autthenticate and the reason is the example project is not to learn firebase but react, and use firebase to fetch and store the post data.
+- Then create a web-app to connect
+- Then install firebase in your project, version 4.8.2 for this project.
+- Copy the configuration given in our app database/config.js and that's it.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

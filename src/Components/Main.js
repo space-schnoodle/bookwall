@@ -5,9 +5,13 @@ import Single from './Single';
 import { Route, Link } from 'react-router-dom';
 
 class Main extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor() {
-    super();
+  state = { loading: true };
+
+  componentDidMount() {
+    this.props.startLoadingPosts().then(() => {
+      this.setState({ loading: false });
+    });
+    this.props.startLoadingComments();
   }
 
   render() {
@@ -29,7 +33,9 @@ class Main extends Component {
         <Route path="/AddPhoto" render={() => <AddPhoto {...this.props} />} />
         <Route
           path="/single/:id"
-          render={(params) => <Single {...this.props} {...params} />}
+          render={(params) => (
+            <Single loading={this.state.loading} {...this.props} {...params} />
+          )}
         />
       </div>
     );
